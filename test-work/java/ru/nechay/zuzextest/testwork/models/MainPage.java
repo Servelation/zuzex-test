@@ -6,11 +6,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table(name = "main_pages")
 public class MainPage implements Serializable {
 
 	@Id

@@ -13,7 +13,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-
+@Table(name = "child_pages")
 public class ChildPage implements Serializable {
 
 	@Id

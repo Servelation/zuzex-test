@@ -23,22 +23,18 @@
 <a th:href="@{/page-app/show}">Вернуться к списку всех url</a>
 
 <div class="container">
-  <div class="row" th:each="child :${childs}">
-    <div th:class="${child.getCount()==mincount ? 'alert alert-warning' : 
-							child.getCount()==maxcount? 'alert alert-success':
-								 'alert alert-secondary'}"
-								 class ="col cell" >      
+  <div class="row" th:each="child :${childs}" 
+  th:with="childState=${child.getCount()==mincount ? 'alert alert-danger' : 
+						child.getCount()==maxcount?  'alert alert-success':
+								 					 'alert alert-secondary'}">
+    <div th:class="${childState}" class ="col cell" >      
     		<span th:text="${child.getSnumber()}">VALUE</span>
     </div>
-    <div th:class="${child.getCount()==mincount ? 'alert alert-warning' : 
-							child.getCount()==maxcount? 'alert alert-success':
-								 'alert alert-secondary'}"
+    <div th:class="${childState}"
 								 class ="col cell" > 
     		<span th:text="${child.getSelfUrl()}">VALUE</span>
     </div>
-    <div th:class="${child.getCount()==mincount ? 'alert alert-warning' : 
-							child.getCount()==maxcount? 'alert alert-success':
-								 'alert alert-secondary'}"
+    <div th:class="${childState}"
 								 class ="col cell" > 
     		<span th:text="${child.getCount()}" >VALUE</span>
     </div>
@@ -46,10 +42,7 @@
 </div>
 
 
-<!-- <div th:each="child :${childs}">
-	<a th:href="@{/page-app/child/{id}(id=${page.getId()})}" 
-	th:text="${page.getSelfUrl()}">тута будут mainPage's</a>
-</div> -->
+
 
 
 
