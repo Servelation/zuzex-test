@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/page-app}" th:object="${page}">
+
+	<div style = "color:red" th:if="${#fields.hasErrors('selfUrl')}" th:errors="*{selfUrl}">Name error</div>
+ 	<label for="url">Введите url страницы </label>
+	<input type="text" th:field="*{selfUrl}" id="selfUrl"/>
+	<input type="submit" value="Спарсить все дочерние страницы!"/>
+	
+</form>
+
+<a th:href="@{/page-app/show}"> Посмотреть все добавленные страницы</a>
+</body>
+</html>
